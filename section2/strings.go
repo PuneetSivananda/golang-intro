@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
+/*
+All strings are Mutable in go
+*/
 func main(){
-	fmt.Println("Hello World")
+	m1 := "My Name"
+
+	fmt.Println(strings.Split(m1, " "))
 }
