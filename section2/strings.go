@@ -10,6 +10,6 @@ All strings are Mutable in go
 */
 func main(){
 	m1 := "My Name"
-
-	fmt.Println(strings.Split(m1, " "))
+	m2 := "is Slim Shady"
+	fmt.Println(strings.Split(m1, " "), m1+m2)
 }
