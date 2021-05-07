@@ -11,4 +11,9 @@ func main(){
 	Anything(2.4)
 	Anything("Hello")
 	Anything(struct{}{})
+
+	mymap := make(map[string]interface{})
+	mymap["name"] = "SNAFU"
+	mymap["age"] = 10
+	fmt.Println(mymap)
 }
