@@ -3,6 +3,7 @@ package main
 // lambda functions
 import (
 	"fmt"
+	"time"
 )
 
 func main(){
@@ -16,5 +17,14 @@ func main(){
 	//sniff the channel
 	val:= <-c
 	fmt.Println(val)
+	fmt.Println(c)
+	time.Sleep(time.Second *1)
+	go func(){
+		c <- 52
+	}()
+
+	val= <-c
+	fmt.Println(val)
+	
 	fmt.Println(c)
 }
