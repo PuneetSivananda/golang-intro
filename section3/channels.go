@@ -6,7 +6,9 @@ import (
 )
 
 func main(){
-	var c chan int // creates a channel
+	var c1 chan int // creates a channel
+	c2:= make(chan int) // makes a channel
 	fmt.Println("Producers and Consumers")
-	fmt.Println(c)
+	fmt.Println(c1)
+	fmt.Println(c2)
 }
