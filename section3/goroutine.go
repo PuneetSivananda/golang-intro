@@ -7,8 +7,10 @@ import (
 
 
 func heavy(){
-	time.Sleep(time.Second *5)
-	fmt.Println("Heavy function")
+	for{
+		time.Sleep(time.Second *5)
+		fmt.Println("Heavy function")
+	}
 }
 
 func main(){
