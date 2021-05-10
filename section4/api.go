@@ -4,12 +4,14 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 )
 
 func main(){
 	mux:=http.NewServeMux()
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
+	mux.HandleFunc("/getgoing", func(w http.ResponseWriter, r *http.Request){
+		fmt.Println("Request Recieved")
 		w.Write([]byte("Hello World"))
 	})
 	http.ListenAndServe("localhost:3000", mux)
