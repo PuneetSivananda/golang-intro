@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"./structs"
+	"./views"
 )
 
 func main(){
@@ -13,7 +13,7 @@ func main(){
 
 	mux.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request){
 		if r.Method == http.MethodGet{
-			data:= structs.Response{
+			data:= views.Response{
 				Code: http.StatusOK,
 				Body: "pong",
 			}
@@ -21,6 +21,6 @@ func main(){
 			json.NewEncoder(w).Encode(data)
 		}
 	})
-	
+
 	http.ListenAndServe("localhost:3000", mux)
 }
