@@ -17,6 +17,7 @@ func ping() http.HandlerFunc {
 				Body: "pong",
 			}
 			fmt.Println("Request Recieved")
+			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
 		}
 	}
