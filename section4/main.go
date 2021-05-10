@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"structs/structs.go"
+
+	"./structs"
 )
 
 func main(){
