@@ -10,6 +10,7 @@ import (
 
 func main(){
 	mux:=http.NewServeMux()
+
 	mux.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request){
 		if r.Method == http.MethodGet{
 			data:= structs.Response{
@@ -20,5 +21,6 @@ func main(){
 			json.NewEncoder(w).Encode(data)
 		}
 	})
+	
 	http.ListenAndServe("localhost:3000", mux)
 }
