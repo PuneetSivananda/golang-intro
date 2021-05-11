@@ -8,7 +8,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-vat con *sql.DB
+var con *sql.DB
 
 func Connect() *sql.DB{
 	db, err:= sql.Open("sqlite3", ":memory:")
