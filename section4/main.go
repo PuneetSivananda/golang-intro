@@ -1,12 +1,16 @@
 package main
 
 import (
+	"go-api/controller"
+	"log"
 	"net/http"
 
-	"./controller"
+	"go-api/model"
 )
 
 func main(){
 	mux:= controller.Register()
-	http.ListenAndServe("localhost:3000", mux)
+	db:= model.Connect()
+	defer db.Close()
+	log.Fatal(http.ListenAndServe("localhost:3000", mux))
 }

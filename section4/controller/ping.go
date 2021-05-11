@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"../views"
+	"go-api/views"
 )
 
 
