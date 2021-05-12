@@ -11,6 +11,7 @@ import (
 var con *sql.DB
 
 func Connect() *sql.DB{
+	// db, err:= sql.Open("sqlite3", "../todo.db")
 	db, err:= sql.Open("sqlite3", ":memory:")
 	if err != nil{
 		log.Fatal(err)
