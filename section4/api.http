@@ -2,10 +2,8 @@
 
 # GET http://localhost:3000/ping HTTP/1.1
 
-POST http://localhost:3000/  HTTP/1.1
-content-type: application/json
-
-{
-    "name": "Test",
-    "todo": "Test Todo API"
-}
+POST http://localhost:3000/ HTTP/1.1
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+Body: {"name": "Test2","todo": "Test Todo API"}
