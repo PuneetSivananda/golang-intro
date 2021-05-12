@@ -2,17 +2,17 @@ package model
 
 import (
 	"database/sql"
-	"fmt"	"log"
+	"fmt"
+	"log"
 )
 
 
-func CreateTODO() error {
-	// tx, _ := con.Begin()
-	result, err := con.Exec("insert into TODO(name, todo) values(?, ?)", "Puneet", "Todo1")
-	fmt.Println(result)
-	// tx.Commit()
-	defer con.Close()
+func CreateTODO(name, todo string) error {
+	insertQ, err := con.Query("insert into TODO(name, todo) values(?, ?)", "Puneet", "Todo1")
+	fmt.Println(insertQ)
+	defer insertQ.Close()
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	return nil
