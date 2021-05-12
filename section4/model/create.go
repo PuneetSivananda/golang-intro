@@ -8,14 +8,15 @@ import (
 
 
 func CreateTODO(name, todo string) error {
-	insertQ, err := con.Query("insert into TODO(name, todo) values(?, ?)", "Puneet", "Todo1")
-	fmt.Println(insertQ)
-	defer insertQ.Close()
+	fmt.Println("--->", name, todo)
+	_, err := con.Exec("insert into TODO(name, todo) values(?, ?)", name, todo)
 	if err != nil {
 		fmt.Println(err)
 		return err
 	}
+	defer con.Close()
 	return nil
+	
 	// insertQ, err := con.Exec("INSERT INTO TODO VALUES(?, ?)", "Puneet", "Todo1")
 	// defer con.Close()
 	// if err != nil {
