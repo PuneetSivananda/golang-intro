@@ -5,7 +5,7 @@ import "go-api/views"
 func ReadAll() ([]views.PostRequest, error){
 	rows, err:=con.Query("SELECT * FROM TODO;")
 	if err!= nil{
-		return nil, error
+		return nil, err
 	}
 	todos:= []views.PostRequest{}
 	for rows.Next(){
