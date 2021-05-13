@@ -1,18 +1,17 @@
 package model
 
 import (
-	"fmt"
 	"log"
 )
 
 
 func CreateTODO(name, todo string) error {
-	fmt.Println("--->", name, todo)
-	_, err := con.Exec("insert into TODO(name, todo) values(?, ?)", name, todo)
+	createQ, err := con.Query("insert into TODO(name, todo) values(?, ?)", name, todo)
 	if err != nil {
 		log.Fatal(err)
 		return err
 	}
+	defer createQ.Close()
 	return nil
 }
 
