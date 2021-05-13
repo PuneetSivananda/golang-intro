@@ -11,7 +11,7 @@ import (
 
 var con *sql.DB
 
-func createTable(db *sql.DB) {
+func CreateTable(db *sql.DB) {
 	createTODOTableSQL := `CREATE TABLE TODO (
 		"name" TEXT,		
 		"todo" TEXT
@@ -25,7 +25,7 @@ func createTable(db *sql.DB) {
 	log.Println("TODO table created")
 }
 
-func Connect() *sql.DB{
+func CreateDB(){
 	os.Remove("todo.db")
 
 	log.Println("Creating todo.db...")
@@ -35,10 +35,12 @@ func Connect() *sql.DB{
 	}
 	file.Close()
 	log.Println("todo.db created")
+}
 
+func Connect() *sql.DB{
+	// CreateDB()
+	// CreateTable(db)
 	db, err:= sql.Open("sqlite3", "./todo.db")
-	createTable(db)
-	
 	if err != nil{
 		log.Fatal(err)
 	}
