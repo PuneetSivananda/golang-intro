@@ -30,6 +30,17 @@ func create() http.HandlerFunc{
 			}
 			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
+		} else if r.Method == http.MethodDelete{
+			name := r.URL.Path[1:]
+			err:= model.DeleteByName(name)
+			if err!=nil{
+				w.Write([]byte("DELETE Error"))
+				return
+			}
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(struct{
+				Status string `json:status`
+			}{"Item Deleted"})
 		}
 	}
 }

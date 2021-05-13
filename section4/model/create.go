@@ -16,3 +16,13 @@ func CreateTODO(name, todo string) error {
 	return nil
 }
 
+func DeleteByName(name string) error {
+	insertQ, err := con.Query("DELETE FROM TODO WHERE name=?", name)
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+	defer insertQ.Close()
+	return nil
+}
+
