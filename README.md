@@ -1,2 +1,2 @@
 ## Getgoing 
-### A repo for starter in golang
+### A starter-pack repo in golang
